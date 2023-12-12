@@ -1,6 +1,6 @@
 /* Name: Jayden Tarrance
-   Date: 4/8/21
-   Program: #4 LinkedList*/
+   Date: 4/8/21	         */
+
    
 public class LinkedList<Type> {
 	/*************
