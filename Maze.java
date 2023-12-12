@@ -46,7 +46,7 @@ public class Maze {
 		while (end == 0 || end == xDim - 1){
 			end = num.nextInt(xDim);
 		}
-		//add the wall above the start to the wall list 
+		//add the wall above to wall lists for the starting point 
 		wallsx.add(start);
 		wallsy.add(1); 
 		grid[0][start] = path;
@@ -66,6 +66,7 @@ public class Maze {
 			}
 			int tempx = wallsx.getElement(temp);
 			int tempy = wallsy.getElement(temp);
+			//going up
 			//if the position below the temp wall is a path then make sure the temp wall is surrounded by walls besides the path below 
 			if (grid[tempy - 1][tempx] == path) {
 				if (grid[tempy][tempx + 1] == wall && grid[tempy][tempx - 1] == wall && grid[tempy + 1][tempx] == wall) {
@@ -74,9 +75,11 @@ public class Maze {
 				//the next 3 if statements do the same thing just from differnt directions 
 					grid[tempy][tempx] = path;
 					wallsx.add(tempx);
-					wallsy.add(tempy + 1); 
+					wallsy.add(tempy + 1);
+					
 					wallsx.add(tempx + 1); 
-					wallsy.add(tempy); 
+					wallsy.add(tempy);
+					
 					wallsx.add(tempx - 1); 
 					wallsy.add(tempy);
 				}
@@ -88,8 +91,10 @@ public class Maze {
 					grid[tempy][tempx] = path;
 					wallsx.add(tempx - 1);
 					wallsy.add(tempy); 
+					
 					wallsx.add(tempx + 1); 
 					wallsy.add(tempy); 
+					
 					wallsx.add(tempx); 
 					wallsy.add(tempy - 1);
 				}
@@ -101,8 +106,10 @@ public class Maze {
 					grid[tempy][tempx] = path;
 					wallsx.add(tempx);
 					wallsy.add(tempy + 1); 
+					
 					wallsx.add(tempx + 1); 
 					wallsy.add(tempy); 
+					
 					wallsx.add(tempx); 
 					wallsy.add(tempy - 1);
 				}
@@ -114,8 +121,10 @@ public class Maze {
 					grid[tempy][tempx] = path;
 					wallsx.add(tempx - 1);
 					wallsy.add(tempy); 
+					
 					wallsx.add(tempx); 
 					wallsy.add(tempy + 1); 
+					
 					wallsx.add(tempx); 
 					wallsy.add(tempy - 1);
 				}
